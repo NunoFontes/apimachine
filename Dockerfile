@@ -9,10 +9,10 @@ RUN \
   apt-get install -y g++ curl git htop man unzip make wget libssl-dev pkg-config npm && \
   rm -rf /var/lib/apt/lists/* 
 
-RUN apt-get install -y python-pip build-essential && \
- pip install --upgrade pip  && \
- pip install --upgrade virtualenv  && \
- pip install supervisor --pre
+RUN apt-get install -y python-pip build-essential 
+#RUN pip install --upgrade pip
+#RUN pip install --upgrade virtualenv
+RUN pip install supervisor --pre
 
 # Install Node.js
 RUN \
