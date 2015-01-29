@@ -6,9 +6,11 @@ MAINTAINER nuno@tradingeconomics.com
 ENV DEBIAN_FRONTEND noninteractive
 RUN \
   apt-get update && \
-  apt-get install -y g++ curl git htop man unzip make wget libssl-dev pkg-config npm build-essential python-pip && \
+  apt-get install -y g++ curl git htop man unzip make wget libssl-dev pkg-config npm build-essential python-pip python-dev && \
   rm -rf /var/lib/apt/lists/* && \
-  sudo pip install supervisor
+  pip install --upgrade pip && \
+  pip install --upbrage virtualenv && \
+  pip install supervisor --pre
 
 # Set environment variables.
 #ENV HOME /root
