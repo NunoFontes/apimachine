@@ -6,11 +6,11 @@ MAINTAINER nuno@tradingeconomics.com
 ENV DEBIAN_FRONTEND noninteractive
 RUN \
   apt-get update && \
-  apt-get install -y g++ curl git htop man unzip make wget libssl-dev pkg-config npm && \
-  rm -rf /var/lib/apt/lists/* 
+  apt-get install -y g++ curl git htop man unzip make wget libssl-dev pkg-config npm 
 
 RUN apt-get install python-setuptools && \
- easy_install supervisor
+  rm -rf /var/lib/apt/lists/* && \
+  easy_install supervisor
 
 # Install Node.js
 RUN \
