@@ -8,7 +8,7 @@ RUN \
   apt-get update && \
   apt-get install -y g++ curl git htop man unzip make wget libssl-dev pkg-config npm 
 
-RUN apt-get install build-essential python-setuptools && \
+RUN apt-get -y install build-essential python-setuptools && \
   rm -rf /var/lib/apt/lists/* && \
   easy_install supervisor
 
