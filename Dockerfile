@@ -19,15 +19,28 @@ RUN \
   tar xvzf node-v0.10.29-linux-x64.tar.gz && \
   rm -f node-v0.10.29-linux-x64.tar.gz
 
-# Install ZMQ
+
+# Install Java.
 RUN \
-  wget http://download.zeromq.org/zeromq-3.2.4.tar.gz && \
-  tar xzf zeromq-3.2.4.tar.gz && \
-  cd /zeromq-3.2.4  && \
-  ./configure && make && make install && \
-  ldconfig
+  echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
+  add-apt-repository -y ppa:webupd8team/java && \
+  apt-get update && \
+  apt-get install -y oracle-java7-installer && \
+  rm -rf /var/lib/apt/lists/* && \
+  rm -rf /var/cache/oracle-jdk7-installer
+
+# Install ZMQ
+# RUN \
+#  wget http://download.zeromq.org/zeromq-3.2.4.tar.gz && \
+#  tar xzf zeromq-3.2.4.tar.gz && \
+#  cd /zeromq-3.2.4  && \
+#  ./configure && make && make install && \
+#  ldconfig
 
 # Add Node & npm to PATH
 ENV PATH /tmp/node-v0.10.29-linux-x64/bin:$PATH
+
+# Define commonly used JAVA_HOME variable
+ENV JAVA_HOME /usr/lib/jvm/java-7-oracle
 
 CMD ["/bin/bash"]
