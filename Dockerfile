@@ -6,7 +6,7 @@ MAINTAINER nuno@tradingeconomics.com
 ENV DEBIAN_FRONTEND noninteractive
 RUN \
   apt-get update && \
-  apt-get install -y g++ curl git htop man unzip make wget libssl-dev pkg-config npm 
+  apt-get install -y g++ curl git htop man unzip make wget libssl-dev pkg-config npm software-properties-common
 
 RUN apt-get -y install build-essential python-setuptools && \
   rm -rf /var/lib/apt/lists/* && \
