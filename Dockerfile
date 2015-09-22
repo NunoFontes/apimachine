@@ -32,7 +32,7 @@ RUN \
 # Install Maven.
  RUN \
   apt-get update && \
-  apt-get install maven
+  apt-get install -y maven
 
 # Install ZMQ
 # RUN \
