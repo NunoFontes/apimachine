@@ -30,8 +30,9 @@ RUN \
   rm -rf /var/cache/oracle-jdk7-installer
 
 # Install Maven.
-# RUN \
-#  apt-get install maven
+ RUN \
+  apt-get update && \
+  apt-get install maven
 
 # Install ZMQ
 # RUN \
