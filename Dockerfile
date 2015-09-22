@@ -29,6 +29,10 @@ RUN \
   rm -rf /var/lib/apt/lists/* && \
   rm -rf /var/cache/oracle-jdk7-installer
 
+# Install Maven.
+RUN \
+  sudo apt-get install maven
+
 # Install ZMQ
 # RUN \
 #  wget http://download.zeromq.org/zeromq-3.2.4.tar.gz && \
