@@ -31,7 +31,7 @@ RUN \
 
 # Install Maven.
 RUN \
-  sudo apt-get install maven
+  apt-get install maven
 
 # Install ZMQ
 # RUN \
