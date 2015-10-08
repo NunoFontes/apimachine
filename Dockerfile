@@ -6,7 +6,7 @@ MAINTAINER nuno@tradingeconomics.com
 ENV DEBIAN_FRONTEND noninteractive
 RUN \
   apt-get update && \
-  apt-get install -y g++ curl git htop man unzip make wget libssl-dev pkg-config npm software-properties-common
+  apt-get install -y g++ curl git htop man unzip make wget libssl-dev pkg-config npm ntp software-properties-common
 
 RUN apt-get -y install build-essential python-setuptools && \
   rm -rf /var/lib/apt/lists/* && \
@@ -33,14 +33,6 @@ RUN \
  RUN \
   apt-get update && \
   apt-get install -y maven
-
-# Install ZMQ
-# RUN \
-#  wget http://download.zeromq.org/zeromq-3.2.4.tar.gz && \
-#  tar xzf zeromq-3.2.4.tar.gz && \
-#  cd /zeromq-3.2.4  && \
-#  ./configure && make && make install && \
-#  ldconfig
 
 # Add Node & npm to PATH
 ENV PATH /tmp/node-v0.10.29-linux-x64/bin:$PATH
